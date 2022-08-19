@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="mt-5">Página de Clientes</h1>
+        </div>
+        <div class="col col-md-auto mt-5">
+            <a class="btn btn-outline-primary" href="/cadastrarCliente">Cadastrar Cliente</a>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>CLIENTE</th>
+                    <th>OPÇÃO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cliente : ${clientes}">
+                    <td>
+                        <a th:href="@{cliente/{id}(id=${cliente.idCliente})}">
+                            <span th:text="${cliente.nmCliente}"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+    <h1 class="mt-5">Cadastro de Cliente</h1>
+    <!-- Formulario adaptado -->
+    <form method="POST" th:object="${cliente}">
+        <!-- Cliente e Container -->
+        <div class="form-row">
+          <div class="form-group col-md-10">
+            <label for="inputCliente">Cliente</label>
+            <input type="text" class="form-control" id="inputCliente" value="" name="nmCliente" >
+          </div>
+        </div>
+        <button type="submit" class="btn btn-outline-success">Salvar</button>
+        <a href="/clientes" class="btn btn-danger">Cancelar</a>
+      </form>
+</div>

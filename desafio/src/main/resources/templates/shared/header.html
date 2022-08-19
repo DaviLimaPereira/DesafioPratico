@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">Teste Pratico</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+          <li th:class="${linkHome}" id="home">
+              <a class="nav-link" href="/">Home</a>
+          </li>
+          <li th:class="${linkCliente}" id="clientes">
+              <a class="nav-link" href="/clientes">Clientes</a>
+          </li>
+          <li th:class="${linkConteiner}" id="conteiners">
+              <a class="nav-link" href="/conteiners">Contêiners</a>
+          </li>
+      </ul>
+      <form class="col-reverse mt-2 mt-md-0">
+          <div class="container">
+              <span class="navbar-brand">Desenvolvido por: <b><i>Davi Lima Pereira</i></b>.</span>
+          </div>
+        </form>
+  </div>
+</nav>
+    

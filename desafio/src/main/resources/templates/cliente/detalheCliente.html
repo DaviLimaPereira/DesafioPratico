@@ -1,0 +1,134 @@
+<div class="container">
+    <div th:each="cliente : ${cliente}">
+        <div class="row">
+            <div class="col">
+                <h1 class="mt-5">Detalhes do Cliente: <span th:text="${cliente.nmCliente}"></span></h1>
+            </div>
+            <div class="col col-md-auto">
+                <a th:href="@{cliente/edit/{id}(id=${cliente.idCliente})} class="btn btn-outline-warning">
+                    Editar
+                </a>
+                <a th:href="@{cliente/delete/{id}(id=${cliente.idCliente})} class="btn btn-outline-danger">
+                    Delete
+                </a>
+                <a class="btn btn-outline-primary" href="/clientes">Voltar</a>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="mt-5">Adicionar Contêiner</h1>
+    <div class="container">
+        <form method="post" th:object="${conteiner}">
+            <!-- Cliente e Container -->
+            <div class="form-row">
+                <div class="form-group col-md-10">
+                  <label for="inputContainer">Contêiner</label>
+                  <input type="text" class="form-control" id="inputContainer" value="" name="conteiner" >
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="inputTipo">Tipo</label>
+                  <select class="form-control" id="inputTipo" name="tipo">
+                      <option>Selecione a Tipo de Container</option>
+                      <option value="20">20</option>
+                      <option value="40">40</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputStatus">Status</label>
+                  <select class="form-control" id="inputStatus" name="status">
+                      <option>Selecione o Status</option>
+                      <option value="Cheio">Cheio</option>
+                      <option value="Vazio">Vazio</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputCategoria">Categoria</label>
+                  <select class="form-control" id="inputCategoria" name="categoria">
+                      <option>Selecione a Categoria</option>
+                      <option value="Exportação">Exportação</option>
+                      <option value="Importação">Importação</option>
+                    </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-outline-success">Adicionar</button>
+        </form>
+    </div>
+
+    <h1 class="mt-5">Lista de Contêiners</h1>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>CONTÊINER</th>
+            <th>TIPO</th>
+            <th>STATUS</th>
+            <th>CATEGORIA</th>
+            <th>OPÇÃO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="container : ${containers}">
+            <td><span th:text="${container.conteiner}"></span></td>
+            <td><span th:text="${container.tipo}"></span></td>
+            <td><span th:text="${container.status}"></span></td>
+            <td><span th:text="${container.categoria}"></span></td>
+            <td>
+              <a th:href="${#mvc.url('CC#deletarContainer').arg(0, container.id).build()}" class="btn btn-outline-danger">
+                Delete
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    <!-- <h1 class="mt-5">Adicionar Movimentação</h1>
+    <th:block th:include="mensagem"></th:block>
+    <div class="container">
+        <form method="post" th:object="${movimentacao}">
+            <div class="row">
+                <div class="col">
+                    Tipo de Movimentação:
+                    <select class="form-group form-control-sm" id="inputStatus" name="nomeMovimentacao">
+                        <option>Selecione a Movimentação</option>
+                        <option value="Embarque">Embarque</option>
+                        <option value="Descarga">Descarga</option>
+                        <option value="Gate In">Gate In</option>
+                        <option value="Gate Out">Gate Out</option>
+                        <option value="Pesagem">Pesagem</option>
+                        <option value="Reposicionamento">Reposicionamento</option>
+                        <option value="Scanner">Scanner</option>
+                      </select>
+                </div>
+                <div class="col">
+                    Início da Movimentação:
+                    <input type="datetime-local" name="inicioMovimentacao" id="">
+                </div>
+                <div class="col">
+                    Fim da Movimentação:
+                    <input type="datetime-local" name="fimMovimentacao" id="">
+                </div>
+            </div>
+            <button class="btn btn-success" type="submit">Adicionar</button>
+        </form>
+    </div> -->
+
+    <!-- <h1 class="mt-5">Lista de Movimentações</h1>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Tipo de Movimentação</th>
+                <th>Início</th>
+                <th>Fim</th>
+                <th>Deletar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="lead" th:each="movimentacao : ${movimentacoes}">
+                <td><span th:text="${movimentacao.nomeMovimentacao}"></span></td>
+                <td><span th:text="${movimentacao.inicioMovimentacao}"></span></td>
+                <td><span th:text="${movimentacao.fimMovimentacao}"></span></td>
+                <td><a th:href="${#mvc.url('CC#deletarMovimentacao').arg(0, movimentacao.id).build()}" class="btn btn-sm btn-outline-danger">Deletar</a></td>
+            </tr>
+        </tbody>
+    </table> -->
+</div>
